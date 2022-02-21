@@ -56,11 +56,12 @@ SELECT * FROM employee
 <tr> 
 <td>Employee ID</td> 
 <td>FirstName</td> 
-<td>LastName</td> 
-<td>Dept_ID</td> 
-<td>StartDate</td> 
-<td>Salary</td> 
-<td>Contract</td> 
+<td align="center">LastName</td> 
+<td align="center">Dept_ID</td> 
+<td align="center">StartDate</td> 
+<td align="center">Salary</td> 
+<td align="center">Contract</td> 
+<td align="center">Action</td> 
 </tr> 
 <tr> 
 <cfoutput query="employee">
@@ -71,8 +72,13 @@ SELECT * FROM employee
 <td>#employee.StartDate# </td> 
 <td>#employee.Salary# </td> 
 <td>#employee.Contract# </td> 
-</cfoutput>
+<td>
+<button><a href="formUpdate.cfm?Emp_ID=#Emp_ID#">Edit</a></button>
+<button><a href="deleteAction.cfm?Emp_ID=#Emp_ID#" onclick="return confirm('Are you sure?');">Delete</a></button>
+<button><a href="printPDF.cfm?Emp_ID=#Emp_ID#" onclick="return confirm('Print details?');">Print PDF</a></button>
+</td>
 </tr> 
+</cfoutput>
 </table> 
 </body> 
 </html>
