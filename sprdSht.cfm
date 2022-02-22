@@ -10,6 +10,7 @@
     theSheet = SpreadsheetNew("CourseData");  
     SpreadsheetAddRows(theSheet,employees); 
 </cfscript>
+
 <cfspreadsheet action="write" filename="#theFile#" name="theSheet" 
     sheetname="employees" overwrite=true> 
 	<cfspreadsheet action="read" src="#theFile#" sheetname="employees" name="spreadsheetData"> 
