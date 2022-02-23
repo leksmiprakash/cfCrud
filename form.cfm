@@ -62,9 +62,7 @@
         <cfquery name="employee" datasource="cfsample" result="r">
         SELECT * FROM employee
         </cfquery>
-        <cfscript> 
-            theDir=GetDirectoryFromPath(GetCurrentTemplatePath());  
-        </cfscript>
+        
         <table border="1"> 
             <tr> 
                 <td>Employee ID</td> 
@@ -80,6 +78,7 @@
             </tr> 
             <cfoutput query="employee">
                 <tr>
+                <cfset FiletoUpload="#employee.fileUpload#"/>
                     <td>#employee.Emp_ID#</td> 
                     <td>#employee.FirstName#</td> 
                     <td>#employee.LastName# </td>  
@@ -88,8 +87,7 @@
                     <td>#employee.StartDate# </td> 
                     <td>#employee.Salary# </td> 
                     <td>#employee.Contract# </td> 
-                    <td><img src="#theDir#\images\#employee.fileUpload#" width="100px" height="100px" style="border-radius:50%"></td> 
-                    </td>
+                    <td><img src="./images/#FiletoUpload#" width="100" height="100"/></td>
                     <td>
                     <button><a href="formUpdate.cfm?Emp_ID=#Emp_ID#">Edit</a></button>
                     <button><a href="deleteAction.cfm?Emp_ID=#Emp_ID#" onclick="return confirm('Are you sure?');">Delete</a></button>
